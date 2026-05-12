@@ -10,8 +10,9 @@ const app = express();
 const PORT = 3000;
 
 // middleware nativo do Express para parsear JSON no corpo das requisições
-app.use(cors('http://127.0.0.1:5500/')); //ip interno da minha máq
-app.use(express.json()); //fala pra API aceitar qualquer conexão interna desse endereço
+app.use(cors('http://127.0.0.1:5500/'));
+app.use(express.json());
+
 
 // cada grupo de rotas é montado sob um prefixo
 app.use('/usuarios', usuariosRoutes);
@@ -29,4 +30,3 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
- //abre o terminal, ao lado do +, clica em command prompt -> digita npm install cors --save, vai instalar o node modules -> npm para baixar o resto -> npm run dev.
